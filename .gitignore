@@ -1,6 +1,8 @@
 *.gem
 *.rbc
 /.config
+.byebug_history
+.sqlite3
 /coverage/
 /InstalledFiles
 /pkg/
