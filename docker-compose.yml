@@ -8,7 +8,9 @@ services:
     ports:
       - "4444:4444"
   chrome:
-    image: selenium/node-chrome:3.12.0-cobalt
+    image: selenium/node-chrome-debug:3.12.0-cobalt
+    ports:
+      - "5900:5900"
     depends_on:
       - selenium-hub
     environment:
@@ -17,7 +19,7 @@ services:
   firefox:
     image: selenium/node-firefox-debug
     ports:
-      - "5900:5900"
+      - "5901:5900"
     volumes:
       - /dev/shm:/dev/shm
     depends_on:
