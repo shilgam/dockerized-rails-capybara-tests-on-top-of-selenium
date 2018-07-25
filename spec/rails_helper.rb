@@ -27,7 +27,9 @@ require 'rspec/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+# Capybara config with docker-compose environment vars
 Capybara.app_host = "http://#{ENV['TEST_APP_HOST']}:#{ENV['TEST_PORT']}"
+Capybara.current_driver = :selenium
 Capybara.javascript_driver = :selenium
 Capybara.run_server = false
 
@@ -81,15 +83,4 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include Capybara::DSL
-
-  config.before(:each) do
-    Capybara.current_driver = :selenium
-  end
-
-  config.after(:each) do
-    Capybara.server_port = "3000"
-    Capybara.reset_sessions!
-    Capybara.use_default_driver
-    Capybara.app_host = nil
-  end
 end
