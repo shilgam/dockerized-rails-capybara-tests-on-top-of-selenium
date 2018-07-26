@@ -40,4 +40,4 @@ Docker is installed
 
 ## Run the test suite:
 
-$ docker-compose exec web rspec spec
+          $ docker-compose exec web rspec spec
