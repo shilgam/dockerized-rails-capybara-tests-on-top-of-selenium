@@ -14,33 +14,6 @@ services:
       - .:/app
     stdin_open: true
     tty: true
-  # selenium-hub:
-  #   image: selenium/hub:3.12.0-cobalt
-  #   container_name: selenium-hub
-  #   ports:
-  #     - '4444:4444'
-  # chrome-debug:
-  #   image: selenium/node-chrome-debug:3.12.0-cobalt
-  #   ports:
-  #     - "5900:5900"
-  #   volumes:
-  #     - /dev/shm:/dev/shm
-  #   depends_on:
-  #     - selenium-hub
-  #   environment:
-  #     - HUB_HOST=selenium-hub
-  #     - HUB_PORT=4444
-  # firefox-debug:
-  #   image: selenium/node-firefox-debug:3.12.0-cobalt
-  #   ports:
-  #     - "5901:5900"
-  #   volumes:
-  #     - /dev/shm:/dev/shm
-  #   depends_on:
-  #     - selenium-hub
-  #   environment:
-  #     - HUB_HOST=selenium-hub
-  #     - HUB_PORT=4444
   selenium:
     image: selenium/standalone-chrome-debug:3.0.1-germanium
     stdin_open: true
