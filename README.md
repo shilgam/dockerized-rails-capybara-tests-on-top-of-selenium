@@ -1,4 +1,8 @@
+[![Build Status](https://travis-ci.org/shilgam/dockerized-rails-capybara-tests-on-top-of-selenium.svg?branch=develop)](https://travis-ci.org/shilgam/dockerized-rails-capybara-tests-on-top-of-selenium)
+
+
 # dockerized-rails-capybara-tests-on-top-of-selenium
+
 http://www.alfredo.motta.name/dockerized-rails-capybara-tests-on-top-of-selenium/
 
 ## Getting Started
