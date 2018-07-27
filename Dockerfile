@@ -1,10 +1,20 @@
 FROM ruby:2.3.0
 RUN apt-get update -qq && apt-get install -y build-essential nodejs
+# Ensure that our apt package list is updated and install a few
+# packages to ensure that we can compile assets (nodejs).
 
-RUN mkdir /app
+RUN mkdir -p /app
 WORKDIR /app
-COPY Gemfile Gemfile
-COPY Gemfile.lock Gemfile.lock
-RUN bundle install
+COPY . .
+# Add app files into docker image
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+COPY ./docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
+# Add bundle entry point to handle bundle cache
+
+ENV BUNDLE_PATH=/bundle \
+    BUNDLE_BIN=/bundle/bin \
+    GEM_HOME=/bundle
+ENV PATH="${BUNDLE_BIN}:${PATH}"
+# Bundle installs with binstubs to our custom /bundle/bin volume path. Let system use those stubs.
