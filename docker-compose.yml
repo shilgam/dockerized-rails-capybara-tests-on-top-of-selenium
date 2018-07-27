@@ -11,10 +11,15 @@ services:
       - TEST_APP_HOST=web
       - TEST_PORT=3001
     volumes:
+      - bundle_cache:/bundle
       - .:/app
     stdin_open: true
     tty: true
+
   selenium:
     image: selenium/standalone-chrome-debug:3.0.1-germanium
     stdin_open: true
     tty: true
+
+volumes:
+  bundle_cache:
