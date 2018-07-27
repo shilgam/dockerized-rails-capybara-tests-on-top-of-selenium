@@ -3,7 +3,10 @@
 
 # dockerized-rails-capybara-tests-on-top-of-selenium
 
-http://www.alfredo.motta.name/dockerized-rails-capybara-tests-on-top-of-selenium/
+Just a few Docker Compose 3 techniques for integrating:
+- Rails development & Travis CI tests
+- Caching of bundler gems into a Docker volume which persists across builds and Gemfile changes
+- A Selenium Chrome instance running Capybara tests, and a VNC connection to interact with the test browser session
 
 ## Getting Started
 
@@ -45,3 +48,7 @@ Docker is installed
 ## Run the test suite:
 
           $ docker-compose exec web rspec spec
+
+## References
+
+How to configure, run and debug Capybara tests with a Selenium Standalone Docker Compose service: https://github.com/jfroom/docker-compose-rails-selenium-example
