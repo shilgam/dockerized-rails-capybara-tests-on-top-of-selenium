@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    Test (0.0.0)
     actioncable (5.2.0)
       actionpack (= 5.2.0)
       nio4r (~> 2.0)
@@ -211,7 +210,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  Test
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15, < 4.0)
